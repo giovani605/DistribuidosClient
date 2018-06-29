@@ -19,14 +19,14 @@ while entrada != 0:
     [1]Listar Passagens
     [2]Filtrar Passagens
     [3]Comprar Passagens
-    [4]Listar Hotel
-    [5]Reservar Hotel
     [0]SAIR
     ''')
     entrada=int(input('Qual das opcoes deseja?'))
 
     if (entrada==1):
+        # executa o request
         resp = requests.get(url)
+        # transforma o request em json
         respdec=resp.json()
        ## print (len(respdec))
        ## print (respdec)
@@ -43,13 +43,13 @@ while entrada != 0:
             print("-=-=-=-=-=-=-=-")
 
     if (entrada==2):
-
         data = input("Data da viagem: ")
         origem = input("Origem: ")
         destino = input("Destino: ")
         dataVolta = input("Data Volta: ")
         opcao = input("Opção (ida ou ida e volta): ")
         parametros = (('data', data), ('origem', origem), ('destino', destino), ('dataVolta',dataVolta),('opcao',opcao))
+        # executa os requests passandos os parametros
         resp = requests.get(url, params=parametros)
         respdec=resp.json()
        ## print (len(respdec))
@@ -73,6 +73,7 @@ while entrada != 0:
         parcelas = input("Parcelas:")
         idade = input("Idade: ")
         qtd = input("Quantidade Pessoas: ")
+        ## passo os parametros via body
         r = requests.post(url='http://localhost:8080/passagem/'+id, json={"cartao": bandeira, "parcela": parcelas, "idade": idade, "numeroPessoas": qtd})
         print(r.json()["message"])
 
