@@ -35,14 +35,14 @@ while entrada != 0:
         for i in range (0, rang):
             print("id:" + str(certo[i]['id']))
             print("data:" + str(certo[i]['data']))
-            print("data:" + str(certo[i]['dataVolta']))
+            print("data Volta:" + str(certo[i]['dataVolta']))
             print("origem:" + str(certo[i]['origem']))
             print("destino:" + str(certo[i]['destino']))
             print("numero:" + str(certo[i]['numero']))
             print("tipo:" + str(certo[i]['tipo']))
             print("-=-=-=-=-=-=-=-")
 
-    if (entrada==2):
+    elif (entrada==2):
         data = input("Data da viagem: ")
         origem = input("Origem: ")
         destino = input("Destino: ")
